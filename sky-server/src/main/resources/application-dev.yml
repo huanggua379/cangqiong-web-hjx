@@ -4,5 +4,9 @@ sky:
     host: localhost
     port: 3306
     database: sky_take_out
-    username: root
-    password: h1j2x3AB@
+    username: ${SKY_DATASOURCE_USERNAME:root}
+    password: ${SKY_DATASOURCE_PASSWORD:}
+  redis:
+    host: localhost
+    port: 6379
+    database: 0

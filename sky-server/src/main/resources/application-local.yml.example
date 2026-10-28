@@ -1,0 +1,10 @@
+# 复制为 application-local.yml 后填写非敏感的 OSS 资源信息。
+# application-local.yml 已被 Git 忽略；AccessKey 仍建议只通过环境变量提供。
+sky:
+  alioss:
+    endpoint: https://oss-cn-hongkong.aliyuncs.com
+    region: cn-hongkong
+    bucket-name: your-private-bucket-name
+    access-key-id: ${OSS_ACCESS_KEY_ID:}
+    access-key-secret: ${OSS_ACCESS_KEY_SECRET:}
+    signed-url-expiration-seconds: 3600
