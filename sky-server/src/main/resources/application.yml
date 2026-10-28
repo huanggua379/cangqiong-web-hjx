@@ -2,8 +2,14 @@ server:
   port: 8080
 
 spring:
+  config:
+    import: optional:classpath:application-local.yml
   profiles:
     active: dev
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
   main:
     allow-circular-references: true
   datasource:
@@ -30,6 +36,13 @@ logging:
         controller: info
 
 sky:
+  alioss:
+    endpoint: ${ALIYUN_OSS_ENDPOINT:}
+    region: ${ALIYUN_OSS_REGION:}
+    bucket-name: ${ALIYUN_OSS_BUCKET_NAME:}
+    access-key-id: ${OSS_ACCESS_KEY_ID:}
+    access-key-secret: ${OSS_ACCESS_KEY_SECRET:}
+    signed-url-expiration-seconds: ${ALIYUN_OSS_SIGNED_URL_EXPIRATION_SECONDS:3600}
   jwt:
     # 设置jwt签名加密时使用的秘钥
     admin-secret-key: itcast
