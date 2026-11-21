@@ -27,10 +27,11 @@ public interface EmployeeMapper {
             "(#{name}, #{username}, #{password}, #{phone}, #{sex}, " +
             "#{idNumber}, #{status}, #{createTime}, #{updateTime}, " +
             "#{createUser}, #{updateUser})")
+    @AutoFill(value = OperationType.INSERT)
     void insert(Employee employee);
 
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
-    @AutoFill(OperationType.UPDATE)
+    @AutoFill(value = OperationType.UPDATE)
     void update(Employee employee);
 @Select("select *from employee where id=#{id}")
     Employee getById(Long id);
